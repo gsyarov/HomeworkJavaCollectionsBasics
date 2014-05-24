@@ -9,7 +9,7 @@ public class _03_LargestSequenceOfEqualStrings {
 		int counter = 1;
 		int maxCount = 1;
 		int position = 0;
-		
+
 		for (int i = 1; i < elementArray.length; i++) {
 			if (elementArray[i].equals(elementArray[i - 1])) {
 				counter++;
@@ -18,11 +18,11 @@ public class _03_LargestSequenceOfEqualStrings {
 			}
 			if (maxCount < counter) {
 				maxCount = counter;
-				position = i;
+				position = i - counter + 1;
 			}
 		}
-		
-		for (int j = 0; j < counter - 1; j++) {
+
+		for (int j = 0; j < maxCount - 1; j++) {
 			System.out.print(elementArray[position] + " ");
 		}
 		System.out.println(elementArray[position]);
